@@ -13,12 +13,12 @@ function Profile() {
             Имя
             <input
               className="form__input form__input_profile"
-              required
               type="text"
               minLength={2}
               maxLength={30}
               placeholder="Имя"
               name="name"
+              required
             />
             <span
               className="

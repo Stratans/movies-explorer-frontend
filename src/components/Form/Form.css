@@ -79,7 +79,7 @@
 }
 
 .form__input:focus {
-  outline: 1px solid #4285f4;
+  outline: 1px solid #ee3465;
 }
 
 .form__input_profile {
@@ -100,7 +100,7 @@
 }
 
 .form__input_profile:focus {
-  outline: 1px solid #4285f4;
+  outline: 1px solid #ee3465;
 }
 
 .form__input_error {

@@ -39,10 +39,10 @@ function Register() {
             E-mail
             <input
               className="form__input"
-              required
               type="email"
               name="email"
               placeholder="E-mail"
+              required
             />
             <span className="form__validation-error form__validation-error_visible email-error">
               Приехали! Вы ввели некорректную почту
@@ -53,12 +53,12 @@ function Register() {
             Пароль
             <input
               className="form__input form__input_error"
-              required
               type="password"
               minLength={4}
               maxLength={8}
               name="password"
               placeholder="Пароль"
+              required
             />
             <span className="form__validation-error form__validation-error_visible password-error">
               Приехали! Вы ввели некорректный пароль
