@@ -54,10 +54,22 @@
 
 /* Медиазапросы: */
 
+@media (max-width: 720px) {
+	.register__logo {
+		padding: 232px 0 0 0;
+	}
+}
+
+@media (max-width: 560px) {
+	.register__logo {
+		padding: 132px 0 0 0;
+	}
+}
+
 @media (max-width: 480px) {
 	.register {
 		max-width: 260px;
-		margin: 56px 0 0 0;
+		/* margin: 56px 0 0 0; */
 	}
 
 	.register__logo {
