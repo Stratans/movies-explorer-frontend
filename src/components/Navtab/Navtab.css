@@ -1,0 +1,57 @@
+.navtab {
+	margin: 0 0 25px 0;
+}
+
+.navtab__element {
+	display: flex;
+	column-gap: 10px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.navtab__element-item {
+	color: #fff;
+	font-family: Inter, Arial, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 36px;
+	width: 96px;
+	height: 36px;
+	background-color: #303030;
+	border-radius: 10px;
+	text-align: center;
+	cursor: pointer;
+	transition: opacity 0.2s ease-in-out;
+}
+
+.navtab__element-item:hover {
+	opacity: 0.8;
+}
+
+.navtab__link {
+	color: #fff;
+	text-decoration: none;
+}
+
+.navtab__link:visited {
+	color: #fff;
+}
+
+/* Медиазапросы: */
+
+@media (max-width: 768px) {
+	.navtab {
+		margin: 0 0 30px 0;
+	}
+}
+
+@media (max-width: 480px) {
+	.navtab__element-item {
+		width: 82px;
+		height: 26px;
+		font-size: 10px;
+		line-height: 26px;
+	}
+}
