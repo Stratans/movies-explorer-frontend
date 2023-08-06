@@ -67,7 +67,7 @@ function Register() {
         </fieldset>
       </Form>
 
-      <span className="register__alternate-text">
+      <span className="register__detail-text">
         Уже зарегистрированы?
         <Link className="register__login-link" to={"/signin"}>
           {" "}

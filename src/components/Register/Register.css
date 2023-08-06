@@ -24,7 +24,7 @@
 	opacity: 0.8;
 }
 
-.register__alternate-text {
+.register__detail-text {
 	color: #8b8b8b;
 	font-family: Inter, Arial, sans-serif;
 	font-size: 14px;
@@ -54,30 +54,35 @@
 
 /* Медиазапросы: */
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
 	.register__logo {
-		padding: 232px 0 0 0;
+		margin: 232px 0 0 0;
+	}
+
+	.register__detail-text {
+		margin: 0 0 232px 0;
 	}
 }
 
 @media (max-width: 560px) {
 	.register__logo {
-		padding: 132px 0 0 0;
+		margin: 132px 0 0 0;
 	}
 }
 
 @media (max-width: 480px) {
 	.register {
 		max-width: 260px;
-		/* margin: 56px 0 0 0; */
 	}
+	
 
 	.register__logo {
-		margin: 0 auto;
+		margin: 56px auto 0;
 	}
 
-	.register__alternate-text {
+	.register__detail-text {
 		font-size: 12px;
+		margin: 0 0 30px 0;
 	}
 
 	.register__login-link {

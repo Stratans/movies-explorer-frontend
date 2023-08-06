@@ -53,16 +53,23 @@
 
 /* Медиазапросы: */
 
-
-@media (max-width: 720px) {
+@media (max-width: 768px) {
 	.login__logo {
-		padding: 232px 0 0 0;
+		margin: 232px 0 0 0;
+	}
+
+	.login__detail-text {
+		margin: 0 0 232px 0;
 	}
 }
 
 @media (max-width: 580px) {
 	.login__logo {
-		padding: 132px 0 0 0;
+		margin: 132px 0 0 0;
+	}
+
+	.login__detail-text {
+		margin: 0 0 30px 0;
 	}
 }
 
@@ -74,6 +81,7 @@
 
 	.login__logo {
 		margin: 0 auto;
+		padding: 0;
 	}
 
 	.login__detail-text {
