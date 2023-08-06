@@ -1,0 +1,24 @@
+.profile {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 410px;
+	display: flex;
+	flex-direction: column;
+	margin: auto auto;
+}
+
+/* Медиазапросы: */
+
+@media (max-width: 480px) {
+	.profile {
+		padding: 0 20px 0 20px;
+	}
+}
+
+@media (max-width: 320px) {
+	.profile {
+		max-width: 260px;
+		margin: 12px 0 0 0;
+		padding: 0;
+	}
+}

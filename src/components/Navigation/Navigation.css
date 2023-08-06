@@ -1,0 +1,38 @@
+.navigation {
+	display: flex;
+	gap: 16px;
+}
+
+.navigation__element {
+	list-style-type: none;
+	display: flex;
+	gap: 16px;
+	margin: 0 0 0 65px;
+	padding: 0;
+}
+
+.navigation__element-item {
+	margin: 0;
+	padding: 0;
+}
+
+.navigation__link {
+	color: #fff;
+	font-family: Inter, Arial, sans-serif;
+	font-size: 13px;
+	text-decoration: none;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 18px;
+	cursor: pointer;
+	text-align: right;
+	transition: opacity 0.2s ease-in-out;
+}
+
+.navigation__link:hover {
+	opacity: 0.8;
+}
+
+.navigation__link:visited {
+	color: #fff;
+}
