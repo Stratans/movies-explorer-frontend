@@ -9,6 +9,10 @@
 	margin: 0 auto;
 }
 
+.movies__search-not-found {
+	margin: auto;
+}
+
 @media (max-width: 768px) {
 	.movies {
 		margin: 0 auto -10px;

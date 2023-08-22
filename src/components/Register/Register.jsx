@@ -1,12 +1,21 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
 
 import "./Register.css";
 
 import Form from "../Form/Form";
+import useFormAndValidation from "../../hooks/useFormAndValidation";
 
-function Register() {
+function Register({ onRegister, errorMessage, setErrorMessage }) {
+  const { values, handleChange, errors, isValid, setValues } =
+    useFormAndValidation();
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    onRegister(values.name, values.email, values.password);
+    setErrorMessage("");
+  }
+
   return (
     <section className="register">
       <Link to={"/"}>
@@ -17,6 +26,9 @@ function Register() {
         name="register"
         title="Добро пожаловать!"
         buttonText="Зарегистрироваться"
+        handleSubmit={handleSubmit}
+        isValid={isValid}
+        errorMessage={errorMessage}
       >
         <fieldset className="form__fieldset">
           <label className="form__container">
@@ -29,9 +41,12 @@ function Register() {
               maxLength={30}
               placeholder="Имя"
               name="name"
+              id="name"
+              onChange={handleChange}
+              value={values.name || ""}
             />
             <span className="form__validation-error form__validation-error_visible name-error">
-              Приехали! Вы ввели некорректное имя
+              {errors.name || ""}
             </span>
           </label>
 
@@ -43,9 +58,11 @@ function Register() {
               name="email"
               placeholder="E-mail"
               required
+              onChange={handleChange}
+              value={values.email || ""}
             />
             <span className="form__validation-error form__validation-error_visible email-error">
-              Приехали! Вы ввели некорректную почту
+              {errors.email || ""}
             </span>
           </label>
 
@@ -57,11 +74,14 @@ function Register() {
               minLength={4}
               maxLength={8}
               name="password"
+              id="password"
               placeholder="Пароль"
               required
+              onChange={handleChange}
+              value={values.password || ""}
             />
             <span className="form__validation-error form__validation-error_visible password-error">
-              Приехали! Вы ввели некорректный пароль
+              {errors.password || ""}
             </span>
           </label>
         </fieldset>

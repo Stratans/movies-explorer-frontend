@@ -196,6 +196,11 @@
   opacity: 0.8;
 }
 
+.form__button-submit:disabled {
+  background-color: #8b8b8b;
+  opacity: 1;
+}
+
 .profile__button-edit {
   color: #fff;
   text-align: center;

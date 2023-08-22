@@ -62,6 +62,11 @@
 	opacity: 0.8;
 }
 
+.search-form__button:disabled {
+	opacity: 1;
+	cursor: default;
+}
+
 .search-form__checkbox-container {
 	width: 100%;
 	border: none;

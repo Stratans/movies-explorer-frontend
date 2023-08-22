@@ -48,6 +48,10 @@
 	opacity: 0.8;
 }
 
+.movies-card-list__button:active {
+	outline: 1px solid #ee3465;
+}
+
 /* Медиазапросы: */
 
 @media (max-width: 768px) {

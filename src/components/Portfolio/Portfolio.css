@@ -28,6 +28,11 @@
 
 .portfolio__element {
 	padding: 20px 0 20px 0;
+	transition: 1s; /* Время эффекта */
+}
+
+.portfolio__element:hover {
+	transform: scale(1.02); /* Увеличиваем масштаб */
 }
 
 .portfolio__element:nth-child(n + 2) {

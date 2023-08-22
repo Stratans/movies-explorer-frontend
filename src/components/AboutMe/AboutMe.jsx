@@ -14,9 +14,7 @@ function AboutMe() {
         <div className="about-me__student">
           <div className="about-me__about-container">
             <h3 className="about-me__name">Виталий</h3>
-            <p className="about-me__job">
-              Фронтенд-разработчик, 30&nbsp;лет
-            </p>
+            <p className="about-me__job">Фронтенд-разработчик, 30&nbsp;лет</p>
             <p className="about-me__description">
               Я&nbsp;родился и&nbsp;живу в&nbsp;Саратове, закончил факультет
               экономики СГУ. У меня есть жена и&nbsp;дочь. Я&nbsp;люблю слушать

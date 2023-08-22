@@ -1,19 +1,27 @@
 import React from "react";
-import { useState } from "react";
 
 import { Link } from "react-router-dom";
 
 import "./Form.css";
 
-const formSubmitError = "Произошла ошибка";
-
-function Form({ name, title, children, buttonText }) {
+function Form({
+  name,
+  title,
+  children,
+  buttonText,
+  handleSubmit,
+  editMode,
+  setEditMode,
+  errorMessage,
+  isValid,
+  disabledButton,
+  logout,
+}) {
   const login = name === "login";
   const profile = name === "profile";
-  const [editMode, setEditMode] = useState(false);
-
+  console.log(errorMessage);
   return (
-    <form className={`form form-${name}`}>
+    <form className={`form form-${name}`} onSubmit={handleSubmit}>
       <h1 className={`form__header ${profile && "form__header_profile"}`}>
         {title}
       </h1>
@@ -25,9 +33,13 @@ function Form({ name, title, children, buttonText }) {
           }`}
         >
           <span className="form__errortext form__errortext_visible">
-            {formSubmitError}
+            {errorMessage}
           </span>
-          <button className="form__button-submit" type="submit">
+          <button
+            className="form__button-submit"
+            type="submit"
+            disabled={!isValid}
+          >
             {buttonText}
           </button>
         </div>
@@ -47,19 +59,19 @@ function Form({ name, title, children, buttonText }) {
             >
               Редактировать
             </button>
-            <Link className="profile__button-exit" to={"/"}>
+            <Link className="profile__button-exit" onClick={logout}>
               Выйти из аккаунта
             </Link>
           </div>
         ) : (
           <div className="profile__button-save-container">
             <span className="form__errortext form__errortext_visible">
-              При обновлении профиля произошла ошибка
+              {errorMessage}
             </span>
             <button
               className="form__button-submit"
               type="submit"
-              onClick={() => setEditMode(false)}
+              disabled={!isValid || disabledButton}
             >
               Сохранить
             </button>

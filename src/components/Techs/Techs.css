@@ -84,6 +84,11 @@
 	background-color: #303030;
 	border-radius: 10px;
 	margin: 0;
+	transition: 1s; /* Время эффекта */
+}
+
+.techs__item:hover {
+	transform: scale(1.1); /* Увеличиваем масштаб */
 }
 
 /* Медиазапросы: */

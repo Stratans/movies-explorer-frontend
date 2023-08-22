@@ -1,26 +1,16 @@
 import { useState, useEffect } from "react";
-
 import { Link } from "react-router-dom";
 
 import "./Header.css";
 
 import Sidebar from "../Burger/Burger";
 import Navigation from "../Navigation/Navigation";
+import useWidthResize from "../../hooks/useWindowSize";
 
 function Header({ loggedIn }) {
   const [sidebarOpened, setSidebarOpened] = useState(false);
 
-  const [width, setWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = (e) => {
-      setWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const width = useWidthResize();
 
   useEffect(() => {
     if (width > 768) {
