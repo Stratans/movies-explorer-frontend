@@ -1,0 +1,123 @@
+.portfolio {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 1280px;
+	display: flex;
+	flex-direction: column;
+	margin: 0 0 125px 0;
+	padding: 0 70px 0 70px;
+}
+
+.portfolio__title {
+	color: #8b8b8b;
+	font-family: Inter, Arial, sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+	margin: 0 0 28px 0;
+}
+
+.portfolio__links {
+	list-style-type: none;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+}
+
+.portfolio__element {
+	padding: 20px 0 20px 0;
+	transition: 1s; /* Время эффекта */
+}
+
+.portfolio__element:hover {
+	transform: scale(1.02); /* Увеличиваем масштаб */
+}
+
+.portfolio__element:nth-child(n + 2) {
+	border-top: 1px solid #424242;
+}
+
+.portfolio__link {
+	width: 100%;
+	line-height: normal;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-decoration: none;
+	cursor: pointer;
+	transition: opacity 0.2s ease-in-out;
+}
+
+.portfolio__link:hover {
+	opacity: 0.8;
+}
+
+.portfolio__element-title {
+	color: #fff;
+	font-family: Inter, Arial, sans-serif;
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 50px;
+	letter-spacing: -1.2px;
+	margin: 0;
+}
+
+.portfolio__element-arrow {
+	width: 20px;
+	height: 20px;
+	background-image: url(../../images/arrow.svg);
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+/* Медиазапросы: */
+
+@media (max-width: 768px) {
+	.portfolio {
+		margin: 9px 0 80px 0;
+		padding: 0 50px 0 50px;
+	}
+
+	.portfolio__element:nth-child(n + 2) {
+		border-top: 1px solid #e6e6e6;
+	}
+
+	.portfolio__element-title {
+		color: #fff;
+		font-family: Inter, Arial, sans-serif;
+		font-size: 28px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 50px;
+		letter-spacing: -1.12px;
+	}
+}
+
+@media (max-width: 600px) {
+	.portfolio__element-title {
+		font-size: 18px;
+		line-height: 28px;
+		letter-spacing: -0.72px;
+	}
+
+	.portfolio__element-arrow {
+		width: 16px;
+		height: 16px;
+	}
+}
+
+@media (max-width: 480px) {
+	.portfolio {
+		margin: 9px 0 70px 0;
+		padding: 0 15px 0 15px;
+	}
+
+	.portfolio__title {
+		font-size: 14px;
+		margin: 0 0 18px 0;
+	}
+}

@@ -1,0 +1,94 @@
+.login {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 396px;
+	display: flex;
+	flex-direction: column;
+	margin: auto auto;
+}
+
+.login__logo {
+	width: 38px;
+	height: 38px;
+	background-image: url(../../images/logo.svg);
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	transition: opacity 0.2s ease-in-out;
+	margin: 70px 0 0 0;
+}
+
+.login__logo:hover {
+	opacity: 0.8;
+}
+
+.login__detail-text {
+	color: #8b8b8b;
+	text-align: center;
+	font-family: Inter, Arial, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	margin: 16px 0 0 0;
+}
+
+.login__registration-link {
+	color: #4285f4;
+	text-align: center;
+	font-family: Inter, Arial, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	text-decoration: none;
+	transition: opacity 0.2s ease-in-out;
+	margin: 0;
+}
+
+.login__registration-link:hover {
+	opacity: 0.8;
+}
+
+/* Медиазапросы: */
+
+@media (max-width: 768px) {
+	.login__logo {
+		margin: 232px 0 0 0;
+	}
+
+	.login__detail-text {
+		margin: 0 0 232px 0;
+	}
+}
+
+@media (max-width: 580px) {
+	.login__logo {
+		margin: 132px 0 0 0;
+	}
+
+	.login__detail-text {
+		margin: 0 0 30px 0;
+	}
+}
+
+@media (max-width: 480px) {
+	.login {
+		max-width: 260px;
+		padding: 56px 0 0 0;
+	}
+
+	.login__logo {
+		margin: 0 auto;
+		padding: 0;
+	}
+
+	.login__detail-text {
+		font-size: 12px;
+	}
+
+	.login__registration-link {
+		font-size: 12px;
+	}
+}
