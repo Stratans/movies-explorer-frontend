@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import "./Register.css";
@@ -7,14 +7,24 @@ import Form from "../Form/Form";
 import useFormAndValidation from "../../hooks/useFormAndValidation";
 
 function Register({ onRegister, errorMessage, setErrorMessage }) {
-  const { values, handleChange, errors, isValid, setValues } =
-    useFormAndValidation();
+  const [isDisabled, setIsDisabled] = useState(false);
 
+  const { values, handleChange, errors, isValid, setValues, resetForm } =
+    useFormAndValidation();
   function handleSubmit(evt) {
     evt.preventDefault();
     onRegister(values.name, values.email, values.password);
     setErrorMessage("");
+    resetForm();
   }
+
+  useEffect(() => {
+    if (!values.name || !values.email || !values.password) {
+      setIsDisabled(true);
+    } else {
+      setIsDisabled(false);
+    }
+  }, [values.name, values.email, values.password]);
 
   return (
     <section className="register">
@@ -29,6 +39,7 @@ function Register({ onRegister, errorMessage, setErrorMessage }) {
         handleSubmit={handleSubmit}
         isValid={isValid}
         errorMessage={errorMessage}
+        isDisabled={isDisabled}
       >
         <fieldset className="form__fieldset">
           <label className="form__container">
@@ -44,6 +55,7 @@ function Register({ onRegister, errorMessage, setErrorMessage }) {
               id="name"
               onChange={handleChange}
               value={values.name || ""}
+              autoComplete="off"
             />
             <span className="form__validation-error form__validation-error_visible name-error">
               {errors.name || ""}
@@ -60,6 +72,8 @@ function Register({ onRegister, errorMessage, setErrorMessage }) {
               required
               onChange={handleChange}
               value={values.email || ""}
+              pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+              autoComplete="off"
             />
             <span className="form__validation-error form__validation-error_visible email-error">
               {errors.email || ""}
@@ -79,6 +93,7 @@ function Register({ onRegister, errorMessage, setErrorMessage }) {
               required
               onChange={handleChange}
               value={values.password || ""}
+              autoComplete="off"
             />
             <span className="form__validation-error form__validation-error_visible password-error">
               {errors.password || ""}

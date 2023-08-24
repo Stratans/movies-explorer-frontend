@@ -16,10 +16,10 @@ function Form({
   isValid,
   disabledButton,
   logout,
+  isDisabled,
 }) {
   const login = name === "login";
   const profile = name === "profile";
-  console.log(errorMessage);
   return (
     <form className={`form form-${name}`} onSubmit={handleSubmit}>
       <h1 className={`form__header ${profile && "form__header_profile"}`}>
@@ -38,7 +38,7 @@ function Form({
           <button
             className="form__button-submit"
             type="submit"
-            disabled={!isValid}
+            disabled={!isValid || isDisabled}
           >
             {buttonText}
           </button>

@@ -80,7 +80,7 @@
 }
 
 .form__input:focus {
-  outline: 1px solid #ee3465;
+  outline: 1px solid #4285f4;
 }
 
 .form__input_profile {
@@ -101,7 +101,7 @@
 }
 
 .form__input_profile:focus {
-  outline: 1px solid #ee3465;
+  outline: 1px solid #4285f4;
 }
 
 .form__input_error {
@@ -199,6 +199,7 @@
 .form__button-submit:disabled {
   background-color: #8b8b8b;
   opacity: 1;
+  cursor: default;
 }
 
 .profile__button-edit {

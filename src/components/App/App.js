@@ -36,7 +36,8 @@ function App() {
   //   setErrorMessage("")
   //   registration(name, email, password)
   //     .then(() => {
-  //       authorization(email, password)
+  //       handleAuthorization(email, password)
+
   //     })
   //     .catch(err => {
   //       if (err.includes(409)) {
@@ -52,7 +53,7 @@ function App() {
     try {
       setErrorMessage("")
       await registration(name, email, password)
-      await authorization(email, password)
+      await handleAuthorization(email, password)
     } catch (err) {
       if (err.includes(409)) {
         setErrorMessage("Пользователь с таким email уже существует");
@@ -63,27 +64,28 @@ function App() {
   }
 
   // авторизация пользователя
-  // function handleAuthorization(email, password) {
-  //   authorization(email, password)
-  //     .then(data => {
-  //       setloggedIn(true)
-  //       localStorage.setItem("token", data.token)
-  //       navigate("/movies")
-  //     })
-  //     .catch(err => console.log(err))
-  // }
+  function handleAuthorization(email, password) {
+    authorization(email, password)
+      .then(data => {
+        setloggedIn(true)
+        localStorage.setItem("token", data.token)
+        navigate("/movies")
+      })
+      .catch(err => console.log(err))
+  }
 
   // авторизация пользователя async
-  const handleAuthorization = async (email, password) => {
-    try {
-      const data = await authorization(email, password)
-      localStorage.setItem("token", data.token)
-      setloggedIn(true)
-      navigate("/movies")
-    } catch (err) {
-      console.log(err)
-    }
-  }
+  // const handleAuthorization = async (email, password) => {
+  //   try {
+  //     console.log(email, password)
+  //     const data = await authorization(email, password)
+  //     localStorage.setItem("token", data.token)
+  //     setloggedIn(true)
+  //     navigate("/movies")
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // }
 
   // обновление данных пользователя
   // function handleUpdateUser({ email, name }) {
@@ -171,7 +173,8 @@ function App() {
     if (loggedIn) {
       if (location.pathname === "/signup" || location.pathname === "/signin") {
         navigate("/movies")
-      } else { navigate(location.pathname) }
+      }
+      //else { navigate(location.pathname) }
     }
   }, [loggedIn, location.pathname])
 

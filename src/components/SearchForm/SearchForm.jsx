@@ -13,28 +13,22 @@ function SearchForm({
   const { values, handleChange, errors, isValid, setValues } =
     useFormAndValidation();
 
-  const [isDisabled, setIsDisabled] = useState(true);
+  const [filterError, setFilterError] = useState("");
 
   function onSubmit(evt) {
     evt.preventDefault();
-    handlerClick(shortMoviesChexbox, values.search);
+    if (values.search === undefined || values.search === "") {
+      setFilterError("Нужно ввести ключевое слово");
+      return;
+    } else {
+      handlerClick(shortMoviesChexbox, values.search);
+    }
+    setFilterError("");
   }
 
   const handlerClickCheckbox = () => {
     setShortMoviesChexbox(!shortMoviesChexbox);
   };
-
-  useEffect(() => {
-    if (values.search === "") {
-      setIsDisabled(true);
-    } else {
-      setIsDisabled(false);
-    }
-  }, [values.search]);
-
-  useEffect(() => {
-    setIsDisabled(true);
-  }, []);
 
   useEffect(() => {
     if (previousFilter) {
@@ -54,11 +48,10 @@ function SearchForm({
             value={values.search || ""}
             onChange={handleChange}
           />
-          <button
-            type="submit"
-            className="search-form__button"
-            disabled={isDisabled}
-          ></button>
+          <button type="submit" className="search-form__button"></button>
+          <span className="form__validation-error form__validation-error_visible email-error">
+            {filterError}
+          </span>
         </fieldset>
 
         <fieldset className="search-form__checkbox-container">

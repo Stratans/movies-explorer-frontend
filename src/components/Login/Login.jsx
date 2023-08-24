@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import "./Login.css";
@@ -10,12 +10,21 @@ import useFormAndValidation from "../../hooks/useFormAndValidation";
 function Login({ setloggedIn, onAuthorization }) {
   const navigate = useNavigate();
   const [errorMessage] = useState("");
+  const [isDisabled, setIsDisabled] = useState(false);
   const { values, handleChange, errors, isValid, setValues } =
     useFormAndValidation();
   const handleSubmit = (e) => {
     e.preventDefault();
     onAuthorization(values.email, values.password);
   };
+
+  useEffect(() => {
+    if (!values.email || !values.password) {
+      setIsDisabled(true);
+    } else {
+      setIsDisabled(false);
+    }
+  }, [values.email, values.password]);
 
   return (
     <section className="login">
@@ -29,6 +38,7 @@ function Login({ setloggedIn, onAuthorization }) {
         handleSubmit={handleSubmit}
         isValid={isValid}
         errorMessage={errorMessage}
+        isDisabled={isDisabled}
       >
         <fieldset className="form__fieldset">
           <label className="form__label">
@@ -42,6 +52,8 @@ function Login({ setloggedIn, onAuthorization }) {
               required
               onChange={handleChange}
               value={values.email || ""}
+              pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+              autoComplete="off"
             />
             <span className="form__validation-error form__validation-error_visible email-error">
               {errors.email || ""}{" "}
@@ -60,6 +72,7 @@ function Login({ setloggedIn, onAuthorization }) {
               onChange={handleChange}
               value={values.password || ""}
               required
+              autoComplete="off"
             />
             <span className="form__validation-error form__validation-error_visible password-error">
               {errors.password || ""}

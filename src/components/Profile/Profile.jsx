@@ -53,6 +53,14 @@ function Profile({
       : setDisabledButton(false);
   }, [values.name, values.email]);
 
+  useEffect(() => {
+    if (!values.name || !values.email) {
+      setDisabledButton(true);
+    } else {
+      setDisabledButton(false);
+    }
+  }, [values.name, values.email]);
+
   return (
     <section className="profile">
       <Form
@@ -81,6 +89,7 @@ function Profile({
               onChange={handleChange}
               value={values.name || ""}
               disabled={!editMode}
+              autoComplete="off"
             />
             <span
               className="
@@ -106,6 +115,8 @@ function Profile({
               onChange={handleChange}
               value={values.email || ""}
               disabled={!editMode}
+              pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+              autoComplete="off"
             />
             <span
               className="
