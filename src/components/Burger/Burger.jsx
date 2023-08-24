@@ -29,7 +29,9 @@ function Burger({ opened, setOpened }) {
             </li>
           </ul>
         </div>
-        <button className="burger__account-button">Аккаунт</button>
+        <Link className="burger__account-button" to="/profile">
+          Аккаунт
+        </Link>
       </nav>
       <button
         className="burger__close-button"

@@ -91,9 +91,11 @@
 	font-size: 14px;
 	font-style: normal;
 	font-weight: 500;
-	line-height: 16px;
+	line-height: 32px;
 	margin: 0 auto 175px;
 	transition: opacity 0.2s ease-in-out;
+	text-align: center;
+	text-decoration: none;
 }
 
 .burger__account-button:hover {
